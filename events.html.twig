@@ -1,0 +1,24 @@
+{% set classes = ['event-register-links'] %}
+
+<style>
+    body ul#event-list a {
+        background-color: #333;
+        color: white !important;
+        padding: 10px;
+    }
+</style>
+
+<div {{ attributes.addClass(classes) }}>
+    <p>Event date: <?php echo date("l H:i"); ?></p>
+
+    <script>
+        // Open the registration link in a new tab.
+        document.querySelectorAll('a[href]').forEach(a => {
+            a.target = "_blank";
+        });
+    </script>
+
+    {% if content.links %}
+        {{ content.links }}
+    {% endif %}
+</div>
